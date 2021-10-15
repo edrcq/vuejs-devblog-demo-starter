@@ -18,6 +18,14 @@ const store = new Vuex.Store({
     addArticle(state, article) {
       state.articles.push(article)
     },
+    modArticle(state, { id, article }) {
+      const index = state.articles.findIndex(arti => arti.id === id)
+      Vue.set(state.articles, index, article)
+    },
+    delArticleById(state, id) {
+      const index = state.articles.findIndex(arti => arti.id === id)
+      state.articles.splice(index, 1)
+    }
   },
   actions: {
     getArticleById(context, id) {

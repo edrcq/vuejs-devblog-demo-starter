@@ -1,5 +1,5 @@
 <template>
-	<div class="row">
+	<div class="row my-3">
 		<div class="col-3">
 			<img :src="article.image" :alt="article.title">
 		</div>

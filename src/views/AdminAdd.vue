@@ -57,8 +57,27 @@ export default {
 	},
 	methods: {
 		addArticle() {
-			const article = new Article(this.form)
-			this.$store.commit('addArticle', article)
+			if (this.id === '') {
+				const article = new Article(this.form)
+				this.$store.commit('addArticle', article)
+			}
+			else {
+				const article = new Article(this.form)
+				this.$store.commit('modArticle', { id: this.id, article })
+			}
+		}
+	},
+	beforeMount() {
+		if (this.$route.params.id) {
+			this.id = this.$route.params.id
+		}
+		if (this.id !== '') {
+			console.log(this.$store.getters['getArticleById'])
+			const { title, short_content, md_content, image } = this.$store.getters['getArticleById'](this.id)
+			this.form.title = title
+			this.form.short_content = short_content
+			this.form.md_content = md_content
+			this.form.image = image
 		}
 	}
 }

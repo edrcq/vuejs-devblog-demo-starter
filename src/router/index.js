@@ -38,6 +38,11 @@ const routes = [
         name: 'AdminAdd',
         component: () => import(/* webpackChunkName: "admin" */ '../views/AdminAdd.vue')
       },
+      {
+        path: 'mod/:id',
+        name: 'AdminMod',
+        component: () => import(/* webpackChunkName: "admin" */ '../views/AdminAdd.vue')
+      },
     ]
   }
 ]
