@@ -1,18 +1,24 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <SinglePost v-for="(article, index) in articles" :key="index" :article="article" />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import SinglePost from '../components/SinglePost.vue'
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+    SinglePost,
+  },
+
+  computed: {
+    articles() {
+      return this.$store.state.articles;
+    }
   }
 }
 </script>
