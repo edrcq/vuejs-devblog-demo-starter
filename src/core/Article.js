@@ -20,4 +20,8 @@ export default class Article {
 	get htmlContent() {
 		return md.render(this.md_content)
 	}
+
+	static renderHtml(str) {
+		return md.render(str)
+	}
 }

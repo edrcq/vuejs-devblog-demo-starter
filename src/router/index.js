@@ -22,6 +22,23 @@ const routes = [
     path: '/read/:id',
     name: 'Article',
     component: () => import(/* webpackChunkName: "article" */ '../views/Article.vue')
+  },
+  {
+    path: '/admin',
+    name: 'Admin',
+    component: () => import(/* webpackChunkName: "admin" */ '../views/Admin.vue'),
+    children: [
+      {
+        path: '',
+        name: 'AdminList',
+        component: () => import(/* webpackChunkName: "admin" */ '../views/AdminList.vue')
+      },
+      {
+        path: 'add',
+        name: 'AdminAdd',
+        component: () => import(/* webpackChunkName: "admin" */ '../views/AdminAdd.vue')
+      },
+    ]
   }
 ]
 
